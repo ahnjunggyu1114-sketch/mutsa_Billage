@@ -11,7 +11,9 @@ import SchoolSelectPage from "./pages/SchoolSelectPage";
 
 function App() {
   // 임시 토큰 값 (true로 바꾸면 로그인된 상태, false로 바꾸면 로그인 안 된 상태를 테스트할 수 있습니다)
+
   const accessToken = true; // 로그인된 상태
+
 
   return (
     <BrowserRouter>
