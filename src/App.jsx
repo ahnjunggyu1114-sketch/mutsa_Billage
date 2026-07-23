@@ -16,33 +16,41 @@ import RentalConfirmPage from "./pages/RentalConfirmPage";
 import RentalCompletePage from "./pages/RentalCompletePage";
 import OAuthCallbackPage from "./pages/OAuthCallbackPage";
 
-// ✨ 방금 만든 store 가져오기
-import useAuthStore from "./store/useAuthstore";
+import MyApplicationsPage from "./pages/MyApplicationsPage";
+import CreditChargePage from "./pages/CreditChargePage";
+// ✨ 크레딧 충전 완료 페이지 임포트
+import CreditCompletePage from "./pages/CreditCompletePage";
+
+import useAuthStore from "./store/useAuthStore";
 
 function App() {
-  // ✨ 무조건 false가 아니라, 실제 로그인 상태를 store에서 가져옵니다!
   const { isLoggedIn } = useAuthStore(); 
 
   return (
     <BrowserRouter>
       <Routes>
-        {/* accessToken 대신 isLoggedIn으로 조건 변경 */}
         <Route path="/" element={isLoggedIn ? <MainPage /> : <Navigate to="/login" replace />} />
         <Route path="/login" element={isLoggedIn ? <Navigate to="/" replace /> : <LoginPage />} />
         
-        {/* 백엔드에서 돌아오는 카카오 로그인 콜백 주소 연결 */}
+        {/* 카카오 로그인 콜백 주소 */}
         <Route path="/oauth/callback" element={<OAuthCallbackPage />} />
         
         {/* 학교 선택 페이지 */}
         <Route path="/school" element={<SchoolSelectPage />} />
 
-        {/* 기존 페이지들 */}
+        {/* 기존 페이지 및 마이페이지 하위 라우트들 */}
         <Route path="/main" element={isLoggedIn ? <MainPage /> : <Navigate to="/login" replace />} />
         <Route path="/mypage" element={isLoggedIn ? <MyPage /> : <Navigate to="/login" replace />} />
+        <Route path="/mypage/applications" element={isLoggedIn ? <MyApplicationsPage /> : <Navigate to="/login" replace />} />
+        <Route path="/mypage/charge" element={isLoggedIn ? <CreditChargePage /> : <Navigate to="/login" replace />} />
+        
+        {/* ✨ 크레딧 충전 완료 페이지 라우트 추가 */}
+        <Route path="/mypage/complete" element={isLoggedIn ? <CreditCompletePage /> : <Navigate to="/login" replace />} />
+
         <Route path="/group-buy" element={isLoggedIn ? <GroupBuyPage /> : <Navigate to="/login" replace />} />
         <Route path="/category" element={isLoggedIn ? <CategoryPage /> : <Navigate to="/login" replace />} />
 
-        {/* 아이템 상세 및 대여 관련 (여기는 조건이 없네요!) */}
+        {/* 아이템 상세 및 대여 관련 */}
         <Route path="/item/:type/:id" element={<ItemPage />} />
         <Route path="/item/:type/:id/apply" element={<RentalApplyPage />}/>
         <Route path="/item/:type/:id/confirm" element={<RentalConfirmPage />}/>
