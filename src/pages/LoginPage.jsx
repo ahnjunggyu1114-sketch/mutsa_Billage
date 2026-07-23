@@ -2,7 +2,7 @@ function LoginPage() {
   
   // ✨ .env 환경변수에서 API 주소 가져오기
   const handleKakaoLogin = () => {
-    const API = import.meta.env.VITE_API_BASE_URL || "https://api.billage.site";
+    const API = import.meta.env.VITE_API_BASE_URL
     const callback = `${window.location.origin}/oauth/callback`;
 
     window.location.href =

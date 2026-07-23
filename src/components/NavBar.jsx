@@ -33,7 +33,7 @@ const navItems = [
   },
   {
     label: "마이페이지",
-    path: "/mypage",
+    path: "/MyPage",
     activeIcon: myPageActiveIcon,
     inactiveIcon: myPageInactiveIcon,
   },
