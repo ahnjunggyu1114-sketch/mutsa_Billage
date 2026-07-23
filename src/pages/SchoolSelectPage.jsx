@@ -12,16 +12,16 @@ function SchoolSelectPage() {
       {/* 위쪽 영역 (로고 및 검색 폼) */}
       <div className="flex flex-col">
         
-        {/* 학교 로고 (텍스트가 입력되면 등장) */}
-        {schoolName.trim() && (
-          <div className="flex justify-center mb-[40px]">
-            <img 
-              src={schoolLogo} 
-              alt="학교 로고" 
-              className="w-[153px] h-[153px] object-contain" 
-            />
-          </div>
-        )}
+        {/* 학교 로고 영역: 자리는 항상 차지하고 있으되, 텍스트가 없으면 투명하게 숨김 (레이아웃 밀림 방지!) */}
+        <div className="flex justify-center mb-[40px] h-[153px] items-center">
+          <img 
+            src={schoolLogo} 
+            alt="학교 로고" 
+            className={`w-[153px] h-[153px] object-contain transition-opacity duration-200 ${
+              schoolName.trim() ? 'opacity-100' : 'opacity-0'
+            }`} 
+          />
+        </div>
 
         {/* 타이틀: 학교 이름 검색 */}
         <h2 
@@ -31,7 +31,7 @@ function SchoolSelectPage() {
           학교 이름 검색
         </h2>
         
-        {/* 검색 입력창 */}
+        {/* 검색 입력창 (이제 글자를 쳐도 위치가 절대 움직이지 않습니다!) */}
         <input
           type="text"
           value={schoolName}
