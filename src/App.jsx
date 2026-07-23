@@ -8,6 +8,7 @@ import MainPage from "./pages/MainPage";
 import MyPage from "./pages/MyPage";
 import RentalPage from "./pages/RentalPage";
 import SchoolSelectPage from "./pages/SchoolSelectPage";
+import CategoryPage from "./pages/CategoryPage";
 
 function App() {
   // 임시 토큰 값 (true로 바꾸면 로그인된 상태, false로 바꾸면 로그인 안 된 상태를 테스트할 수 있습니다)
@@ -28,7 +29,7 @@ function App() {
         <Route path="/main" element={accessToken ? <MainPage /> : <Navigate to="/login" replace />} />
         <Route path="/mypage" element={accessToken ? <MyPage /> : <Navigate to="/login" replace />} />
         <Route path="/group-buy" element={accessToken ? <GroupBuyPage /> : <Navigate to="/login" replace />} />
-        <Route path="/rental" element={accessToken ? <RentalPage /> : <Navigate to="/login" replace />} />
+        <Route path="/category" element={accessToken ? <CategoryPage /> : <Navigate to="/login" replace />} />
         <Route path="/create" element={accessToken ? <CreatePostPage /> : <Navigate to="/login" replace />} />
           
       </Routes>

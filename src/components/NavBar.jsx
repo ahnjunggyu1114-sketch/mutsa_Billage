@@ -21,7 +21,7 @@ const navItems = [
   },
   {
     label: "카테고리",
-    path: "/rental",
+    path: "/category",
     activeIcon: categoryActiveIcon,
     inactiveIcon: categoryInactiveIcon,
   },
