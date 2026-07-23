@@ -5,7 +5,7 @@ const groupBuyMockData = [
         title: "코디 화장지 30롤",
         currentParticipants: 3,
         capacity: 5,
-        price: 6900,
+        price: 7000,
     },
     {
         id: 2,

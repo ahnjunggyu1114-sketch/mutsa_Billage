@@ -10,7 +10,7 @@ const MainPage = () => {
     const [selectedCategory, setSelectedCategory] = useState("all");
 
     return (
-        <main className="pb-24">
+        <main className="px-6 pt-6 pb-24">
             <section className="px-5 pt-6">
                 <h1 className="text-2xl font-bold pb-5 ">
                     안녕하세요! 안정규님
