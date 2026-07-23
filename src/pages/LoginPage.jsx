@@ -1,8 +1,8 @@
 function LoginPage() {
   
-  // ✨ 백엔드 요청에 맞게 수정한 카카오 로그인 함수
+  // ✨ .env 환경변수에서 API 주소 가져오기
   const handleKakaoLogin = () => {
-    const API = "https://api.billage.site";
+    const API = import.meta.env.VITE_API_BASE_URL || "https://api.billage.site";
     const callback = `${window.location.origin}/oauth/callback`;
 
     window.location.href =
