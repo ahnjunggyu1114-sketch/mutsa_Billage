@@ -41,7 +41,7 @@ const navItems = [
 
 function Navbar() {
   return (
-    <nav className="fixed bottom-0 left-1/2 flex h-24 w-full max-w-[402px] -translate-x-1/2 items-center gap-20 rounded-t-[28px] bg-white px-5 py-4">
+    <nav className="fixed bottom-0 z-50 left-1/2 flex h-24 w-full justify-center -translate-x-1/2 items-center gap-20 rounded-t-[28px] bg-white px-5 py-4">
       {navItems.map((item) => (
         <NavLink
           key={item.path}
