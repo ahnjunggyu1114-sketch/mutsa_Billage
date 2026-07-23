@@ -1,7 +1,10 @@
-import { useNavigate } from 'react-router-dom';
-
 function LoginPage() {
-  const navigate = useNavigate();
+  
+  // 카카오 로그인 버튼 클릭 시 실행할 함수
+  const handleKakaoLogin = () => {
+    // 백엔드가 제공한 카카오 소셜 로그인 URL로 페이지 이동
+    window.location.href = "https://api.billage.site/oauth2/authorization/kakao";
+  };
 
   return (
     // 모바일 화면 비율(아이폰)에 맞춘 전체 컨테이너
@@ -15,7 +18,7 @@ function LoginPage() {
         Billage
       </h1>
 
-      {/* 2. 서브 텍스트 (찾아주신 #747374 색상 적용 완료!) */}
+      {/* 2. 서브 텍스트 */}
       <p 
         className="absolute top-[413px] left-[18px] text-[#747374] text-[16px] font-[400] leading-[150%]"
         style={{ fontFamily: 'Pretendard, sans-serif' }}
@@ -26,10 +29,10 @@ function LoginPage() {
 
       {/* 3. 카카오 로그인 버튼 */}
       <button 
-        onClick={() => navigate('/home')}
+        onClick={handleKakaoLogin}
         className="absolute top-[742px] left-[20px] w-[362px] h-[56px] bg-[#FEE500] rounded-[16px] flex items-center justify-center gap-[10px]"
       >
-        {/* 카카오 말풍선 아이콘 (검은색 동그라미로 임시 대체, 나중에 svg로 교체) */}
+        {/* 카카오 말풍선 아이콘 임시 대체 */}
         <div className="w-[18px] h-[18px] bg-[#000000] rounded-full opacity-85"></div>
         
         {/* 카카오 로그인 글씨 */}

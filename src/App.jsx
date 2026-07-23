@@ -8,14 +8,19 @@ import MainPage from "./pages/MainPage";
 import MyPage from "./pages/MyPage";
 import RentalPage from "./pages/RentalPage";
 import SchoolSelectPage from "./pages/SchoolSelectPage";
+
 import CategoryPage from "./pages/CategoryPage";
 import ItemPage from "./pages/ItemPage";
 import RentalApplyPage from "./pages/RentalApplyPage";
 import RentalConfirmPage from "./pages/RentalConfirmPage";
 import RentalCompletePage from "./pages/RentalCompletePage";
 
+// 새로 만든 콜백 페이지 import
+import OAuthCallbackPage from "./pages/OAuthCallbackPage";
+
+
 function App() {
-  // 임시 토큰 값 (true로 바꾸면 로그인된 상태, false로 바꾸면 로그인 안 된 상태를 테스트할 수 있습니다)
+  // 임시 토큰 값 (추후 로컬 스토리지에서 가져오는 로직으로 변경 필요)
   const accessToken = true; // 로그인된 상태
 
   return (
@@ -25,6 +30,9 @@ function App() {
         <Route path="/" element={accessToken ? <MainPage /> : <Navigate to="/login" replace />} />
         <Route path="/login" element={accessToken ? <Navigate to="/" replace /> : <LoginPage />} />
         
+        {/* 백엔드에서 돌아오는 카카오 로그인 콜백 주소 연결 */}
+        <Route path="/oauth/callback" element={<OAuthCallbackPage />} />
+        
         {/* 학교 선택 페이지 */}
         <Route path="/school" element={<SchoolSelectPage />} />
 
@@ -32,6 +40,7 @@ function App() {
         <Route path="/main" element={accessToken ? <MainPage /> : <Navigate to="/login" replace />} />
         <Route path="/mypage" element={accessToken ? <MyPage /> : <Navigate to="/login" replace />} />
         <Route path="/group-buy" element={accessToken ? <GroupBuyPage /> : <Navigate to="/login" replace />} />
+
         <Route path="/category" element={accessToken ? <CategoryPage /> : <Navigate to="/login" replace />} />
         <Route path="/create" element={accessToken ? <CreatePostPage /> : <Navigate to="/login" replace />} />
 
@@ -40,6 +49,13 @@ function App() {
         <Route path="/item/:type/:id/apply" element={<RentalApplyPage />}/>
         <Route path="/item/:type/:id/confirm" element={<RentalConfirmPage />}/>
         <Route path="/item/rental/:id/complete" element={<RentalCompletePage />}/>
+
+        <Route path="/rental" element={accessToken ? <RentalPage /> : <Navigate to="/login" replace />} />
+        
+        {/* 글 등록 관련 페이지 */}
+        <Route path="/create" element={accessToken ? <CreatePostPage /> : <Navigate to="/login" replace />} />
+        <Route path="/create/rental" element={accessToken ? <RentalPage /> : <Navigate to="/login" replace />} />
+
       </Routes>
     </BrowserRouter>
   );
