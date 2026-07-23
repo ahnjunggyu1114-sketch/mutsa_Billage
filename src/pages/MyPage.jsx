@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import useAuthStore from "../store/useAuthStore";
+import useAuthStore from "../store/useAuthstore";
 import Navbar from "../components/NavBar";
 
 function MyPage() {
