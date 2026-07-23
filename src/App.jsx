@@ -1,7 +1,7 @@
 // src/App.jsx
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 
-import Navbar from "./components/Navbar";
+import Navbar from "./components/NavBar";
 import CreatePostPage from "./pages/CreatePostPage";
 import GroupBuyPage from "./pages/GroupBuyPage";
 import LoginPage from "./pages/LoginPage";
@@ -17,7 +17,7 @@ import RentalCompletePage from "./pages/RentalCompletePage";
 import OAuthCallbackPage from "./pages/OAuthCallbackPage";
 
 // ✨ 방금 만든 store 가져오기
-import useAuthStore from "./store/useAuthStore";
+import useAuthStore from "./store/useAuthstore";
 
 function App() {
   // ✨ 무조건 false가 아니라, 실제 로그인 상태를 store에서 가져옵니다!
