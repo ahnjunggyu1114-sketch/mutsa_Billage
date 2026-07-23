@@ -5,7 +5,7 @@ import MainCategoryFilter from "../components/mainpages/MainCategoryFilter";
 import RentalSection from "../components/mainpages/RentalSection";
 
 import searchIcon from "../assets/search.svg";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/NavBar";
 
 const MainPage = () => {
     const [selectedCategory, setSelectedCategory] = useState("all");

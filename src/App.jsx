@@ -1,7 +1,7 @@
 // src/App.jsx
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 
-import Navbar from "./components/Navbar";
+import Navbar from "./components/NavBar";
 import CreatePostPage from "./pages/CreatePostPage";
 import GroupBuyPage from "./pages/GroupBuyPage";
 import LoginPage from "./pages/LoginPage";

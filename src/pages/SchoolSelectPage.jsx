@@ -44,7 +44,7 @@ function SchoolSelectPage() {
 
       {/* 하단 '다음' 버튼 */}
       <button
-        onClick={() => navigate('/home')}
+        onClick={() => navigate('/')}
         disabled={!schoolName.trim()}
         className={`w-full h-[49px] rounded-[12px] font-[600] text-[16px] text-white transition-colors flex items-center justify-center ${
           schoolName.trim() 

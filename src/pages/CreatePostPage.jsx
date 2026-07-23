@@ -9,7 +9,7 @@ import rentalDefaultIcon from '../assets/대여기본.png';
 import rentalSelectedIcon from '../assets/대여선택o.png';
 import groupDefaultIcon from '../assets/공동구매기본.png';
 import groupUnselectedIcon from '../assets/공동구매선택x.png';
-import Navbar from '../components/Navbar';
+import Navbar from '../components/NavBar';
 
 function CreatePostPage() {
   const navigate = useNavigate();
