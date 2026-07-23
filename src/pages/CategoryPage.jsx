@@ -7,7 +7,7 @@ import groupBuyMockData from "../data/groupBuyMockData";
 import rentalMockData from "../data/rentalMockData";
 
 import searchIcon from "../assets/search.svg";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/NavBar";
 
 
 function CategoryPage() {

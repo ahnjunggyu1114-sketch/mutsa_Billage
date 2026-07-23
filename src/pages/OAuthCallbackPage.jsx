@@ -2,7 +2,7 @@
 import { useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 // ✨ store 가져오기
-import useAuthStore from '../store/useAuthStore'; 
+import useAuthStore from '../store/useAuthstore'; 
 
 function OAuthCallbackPage() {
   const navigate = useNavigate();
