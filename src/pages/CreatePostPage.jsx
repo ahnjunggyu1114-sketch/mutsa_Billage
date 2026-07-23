@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-// assets 폴더 내 아이콘 파일 불러오기
+// 1. 새로 만든 공통 Header 컴포넌트 불러오기
+import Header from '../components/Header';
+
+// 2. assets 폴더 내 아이콘 불러오기 (현재 사용 중인 4개 파일)
 import rentalDefaultIcon from '../assets/대여기본.png';
 import rentalSelectedIcon from '../assets/대여선택o.png';
 import groupDefaultIcon from '../assets/공동구매기본.png';
@@ -10,7 +13,7 @@ import groupUnselectedIcon from '../assets/공동구매선택x.png';
 function CreatePostPage() {
   const navigate = useNavigate();
   
-  // 선택 상태: null (기본) | 'rental' (대여 선택) | 'group' (공동구매 선택)
+  // 선택 상태: null (기본) | 'rental' (대여) | 'group' (공동구매)
   const [selectedType, setSelectedType] = useState(null);
 
   const handleNext = () => {
@@ -21,15 +24,15 @@ function CreatePostPage() {
     }
   };
 
-  // 1. 대여 카드의 아이콘 결정 함수
+  // 1. 대여 카드 아이콘 분기
   const getRentalIcon = () => {
     if (selectedType === 'rental') return rentalSelectedIcon;
     return rentalDefaultIcon;
   };
 
-  // 2. 공동구매 카드의 아이콘 결정 함수
+  // 2. 공동구매 카드 아이콘 분기
   const getGroupIcon = () => {
-    if (selectedType === 'rental') return groupUnselectedIcon; // 대여가 선택되면 공동구매는 흐린 아이콘
+    if (selectedType === 'rental') return groupUnselectedIcon;
     return groupDefaultIcon;
   };
 
@@ -38,18 +41,10 @@ function CreatePostPage() {
       className="relative w-full min-h-screen bg-white max-w-[400px] mx-auto flex flex-col justify-between px-[20px] pt-[20px] pb-[40px]"
       style={{ fontFamily: 'Pretendard, sans-serif' }}
     >
-      {/* 上 영역 (헤더 + 타이틀 + 선택 카드) */}
+      {/* 상단 영역 (헤더 + 타이틀 + 선택 카드 목록) */}
       <div>
-        {/* 상단 네비게이션 바 */}
-        <div className="relative flex items-center justify-center py-[14px] mb-[24px]">
-          <button 
-            onClick={() => navigate(-1)} 
-            className="absolute left-0 text-[18px] text-[#171617]"
-          >
-            ⟨
-          </button>
-          <h1 className="text-[16px] font-[600] text-[#171617]">글 등록</h1>
-        </div>
+        {/* ✨ 공통 Header 컴포넌트 적용 */}
+        <Header title="글 등록" />
 
         {/* 타이틀 */}
         <h2 className="text-[20px] font-[700] text-[#171617] mb-[24px] leading-[140%]">
@@ -69,7 +64,6 @@ function CreatePostPage() {
             }`}
           >
             <div className="flex flex-col justify-center">
-              {/* 제목 */}
               <span
                 className={`text-[18px] font-[600] mb-[4px] leading-[140%] ${
                   selectedType === 'rental'
@@ -81,11 +75,12 @@ function CreatePostPage() {
               >
                 대여
               </span>
-              {/* 설명 */}
               <span
                 className={`text-[12px] font-[400] leading-[160%] tracking-[-0.015em] whitespace-pre-line ${
                   selectedType === 'rental'
                     ? 'text-[#62B5F5]'
+                    : selectedType === 'group'
+                    ? 'text-[#464545] opacity-50'
                     : 'text-[#464545]'
                 }`}
               >
@@ -110,7 +105,6 @@ function CreatePostPage() {
             }`}
           >
             <div className="flex flex-col justify-center">
-              {/* 제목 */}
               <span
                 className={`text-[18px] font-[600] mb-[4px] leading-[140%] ${
                   selectedType === 'group'
@@ -122,11 +116,12 @@ function CreatePostPage() {
               >
                 공동구매
               </span>
-              {/* 설명 */}
               <span
                 className={`text-[12px] font-[400] leading-[160%] tracking-[-0.015em] whitespace-pre-line ${
                   selectedType === 'group'
                     ? 'text-[#62B5F5]'
+                    : selectedType === 'rental'
+                    ? 'text-[#464545] opacity-50'
                     : 'text-[#464545]'
                 }`}
               >
@@ -144,7 +139,7 @@ function CreatePostPage() {
         </div>
       </div>
 
-      {/* 하단 다음 버튼 (선택 안 되어 있을 땐 회색, 클릭 시 파란색 활성화) */}
+      {/* 하단 다음 버튼 */}
       <button
         onClick={handleNext}
         disabled={!selectedType}
