@@ -1,9 +1,15 @@
 function LoginPage() {
   
-  // 카카오 로그인 버튼 클릭 시 실행할 함수
+  // ✨ 백엔드 요청에 맞게 수정한 카카오 로그인 함수
   const handleKakaoLogin = () => {
-    // 백엔드가 제공한 카카오 소셜 로그인 URL로 페이지 이동
-    window.location.href = "https://api.billage.site/oauth2/authorization/kakao";
+    // 1. 백엔드 API 기본 주소
+    const API = "https://api.billage.site"; 
+    
+    // 2. 현재 접속 중인 도메인(localhost:5173 또는 billage.site)에 맞춰 콜백 주소 자동 생성
+    const callback = `${window.location.origin}/oauth/callback`;
+    
+    // 3. 로그인 요청 URL 뒤에 redirect_uri 파라미터로 콜백 주소를 인코딩해서 붙여줌
+    window.location.href = `${API}/oauth2/authorization/kakao?redirect_uri=${encodeURIComponent(callback)}`;
   };
 
   return (
