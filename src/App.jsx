@@ -30,6 +30,7 @@ function App() {
         <Route path="/group-buy" element={accessToken ? <GroupBuyPage /> : <Navigate to="/login" replace />} />
         <Route path="/rental" element={accessToken ? <RentalPage /> : <Navigate to="/login" replace />} />
         <Route path="/create" element={accessToken ? <CreatePostPage /> : <Navigate to="/login" replace />} />
+          
       </Routes>
     </BrowserRouter>
   );
