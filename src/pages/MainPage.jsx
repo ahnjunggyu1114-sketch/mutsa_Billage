@@ -5,12 +5,14 @@ import MainCategoryFilter from "../components/mainpages/MainCategoryFilter";
 import RentalSection from "../components/mainpages/RentalSection";
 
 import searchIcon from "../assets/search.svg";
+import Navbar from "../components/Navbar";
 
 const MainPage = () => {
     const [selectedCategory, setSelectedCategory] = useState("all");
 
     return (
         <main className="px-6 pt-6 pb-24">
+            <Navbar/>
             <section className="px-5 pt-6">
                 <h1 className="text-2xl font-bold pb-5 ">
                     안녕하세요! 안정규님

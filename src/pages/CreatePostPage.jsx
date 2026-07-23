@@ -9,6 +9,7 @@ import rentalDefaultIcon from '../assets/대여기본.png';
 import rentalSelectedIcon from '../assets/대여선택o.png';
 import groupDefaultIcon from '../assets/공동구매기본.png';
 import groupUnselectedIcon from '../assets/공동구매선택x.png';
+import Navbar from '../components/Navbar';
 
 function CreatePostPage() {
   const navigate = useNavigate();
@@ -38,9 +39,10 @@ function CreatePostPage() {
 
   return (
     <div 
-      className="relative w-full min-h-screen bg-white max-w-[400px] mx-auto flex flex-col justify-between px-[20px] pt-[20px] pb-[40px]"
+      className="relative w-full min-h-screen bg-white max-w-[400px] mx-auto flex flex-col justify-between px-[20px] pt-[20px] pb-[150px]"
       style={{ fontFamily: 'Pretendard, sans-serif' }}
     >
+      <Navbar />
       {/* 상단 영역 (헤더 + 타이틀 + 선택 카드 목록) */}
       <div>
         {/* ✨ 공통 Header 컴포넌트 적용 */}

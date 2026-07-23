@@ -7,6 +7,7 @@ import groupBuyMockData from "../data/groupBuyMockData";
 import rentalMockData from "../data/rentalMockData";
 
 import searchIcon from "../assets/search.svg";
+import Navbar from "../components/Navbar";
 
 
 function CategoryPage() {
@@ -32,6 +33,7 @@ function CategoryPage() {
 
     return (
         <main className="min-h-screen px-5 pb-28 pt-5">
+            <Navbar />
             <section className="mt-6 px-5 pb-5">
                 <div
                     className="
