@@ -1,5 +1,4 @@
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
-import useAuthStore from "./store/useAuthStore"; // 팀 프로젝트의 스토어 경로를 확인해주세요!
 
 import Navbar from "./components/Navbar";
 import CreatePostPage from "./pages/CreatePostPage";
@@ -11,21 +10,21 @@ import RentalPage from "./pages/RentalPage";
 import SchoolSelectPage from "./pages/SchoolSelectPage";
 
 function App() {
-  const accessToken = useAuthStore((state) => state.accessToken);
+  // 임시 토큰 값 (true로 바꾸면 로그인된 상태, false로 바꾸면 로그인 안 된 상태를 테스트할 수 있습니다)
+  const accessToken = false;
 
   return (
     <BrowserRouter>
       <Navbar />
 
       <Routes>
-        {/* 로그인 여부에 따른 메인 및 로그인 페이지 분기 */}
         <Route path="/" element={accessToken ? <MainPage /> : <Navigate to="/login" replace />} />
         <Route path="/login" element={accessToken ? <Navigate to="/" replace /> : <LoginPage />} />
         
-        {/* 새로 만든 학교 선택 페이지 */}
+        {/* 학교 선택 페이지 */}
         <Route path="/school" element={<SchoolSelectPage />} />
 
-        {/* 기존 페이지들 (로그인 상태일 때만 접근 가능) */}
+        {/* 기존 페이지들 */}
         <Route path="/main" element={accessToken ? <MainPage /> : <Navigate to="/login" replace />} />
         <Route path="/mypage" element={accessToken ? <MyPage /> : <Navigate to="/login" replace />} />
         <Route path="/group-buy" element={accessToken ? <GroupBuyPage /> : <Navigate to="/login" replace />} />
