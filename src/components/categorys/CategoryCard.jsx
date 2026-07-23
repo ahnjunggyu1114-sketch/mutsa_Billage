@@ -1,6 +1,13 @@
+import { useNavigate } from "react-router-dom";
+
 function CategoryCard({ item }) {
+    const navigate = useNavigate();
+
+    const handleCardClick = () => {
+        navigate(`/item/${item.type}/${item.id}`);
+    };
     return (
-        <article className="flex gap-4 border-b border-[#EEEEEE] bg-white px-4 py-4">
+        <article onClick={handleCardClick} className="flex gap-4 border-b border-[#EEEEEE] bg-white px-4 py-4">
             <div className="h-[88px] w-[88px] shrink-0 rounded-lg bg-[#A2A2A2]">
                 {item.imageUrl && (
                     <img

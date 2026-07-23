@@ -9,6 +9,10 @@ import MyPage from "./pages/MyPage";
 import RentalPage from "./pages/RentalPage";
 import SchoolSelectPage from "./pages/SchoolSelectPage";
 import CategoryPage from "./pages/CategoryPage";
+import ItemPage from "./pages/ItemPage";
+import RentalApplyPage from "./pages/RentalApplyPage";
+import RentalConfirmPage from "./pages/RentalConfirmPage";
+import RentalCompletePage from "./pages/RentalCompletePage";
 
 function App() {
   // 임시 토큰 값 (true로 바꾸면 로그인된 상태, false로 바꾸면 로그인 안 된 상태를 테스트할 수 있습니다)
@@ -16,7 +20,6 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Navbar />
 
       <Routes>
         <Route path="/" element={accessToken ? <MainPage /> : <Navigate to="/login" replace />} />
@@ -31,7 +34,12 @@ function App() {
         <Route path="/group-buy" element={accessToken ? <GroupBuyPage /> : <Navigate to="/login" replace />} />
         <Route path="/category" element={accessToken ? <CategoryPage /> : <Navigate to="/login" replace />} />
         <Route path="/create" element={accessToken ? <CreatePostPage /> : <Navigate to="/login" replace />} />
-          
+
+
+        <Route path="/item/:type/:id" element={<ItemPage />} />
+        <Route path="/item/:type/:id/apply" element={<RentalApplyPage />}/>
+        <Route path="/item/:type/:id/confirm" element={<RentalConfirmPage />}/>
+        <Route path="/item/rental/:id/complete" element={<RentalCompletePage />}/>
       </Routes>
     </BrowserRouter>
   );
