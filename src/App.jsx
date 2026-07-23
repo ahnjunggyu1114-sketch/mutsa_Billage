@@ -21,7 +21,7 @@ import CreditChargePage from "./pages/CreditChargePage";
 // ✨ 크레딧 충전 완료 페이지 임포트
 import CreditCompletePage from "./pages/CreditCompletePage";
 
-import useAuthStore from "./store/useAuthStore";
+import useAuthStore from "./store/UseAuthStore";
 
 function App() {
   const { isLoggedIn } = useAuthStore(); 
