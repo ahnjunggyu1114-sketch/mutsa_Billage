@@ -8,7 +8,7 @@ function CreditCompletePage() {
   // 이전 충전 페이지(CreditChargePage)에서 전달받은 금액 (기본값: 10,000)
   const amount = location.state?.amount || 10000;
 
-  // ✨ 확인 버튼 및 헤더 뒤로가기 클릭 시 마이페이지로 이동 (히스토리 덮어쓰기)
+  // 확인 버튼 및 헤더 뒤로가기 클릭 시 마이페이지로 이동
   const handleGoToMyPage = () => {
     navigate("/mypage", { replace: true });
   };
@@ -108,7 +108,7 @@ function CreditCompletePage() {
             </div>
           </div>
 
-          {/* ✨ 하단 확인 버튼 (클릭 시 /mypage로 이동) */}
+          {/* 하단 확인 버튼 */}
           <button
             onClick={handleGoToMyPage}
             className="w-full h-[49px] bg-[#62B5F5] text-white rounded-[12px] text-[14px] font-[600] mt-[24px] cursor-pointer"
