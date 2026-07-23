@@ -5,19 +5,21 @@ function CreditCompletePage() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // 이전 충전 페이지(CreditChargePage)에서 선택하여 넘어온 금액 (기본값: 10,000)
+  // 이전 충전 페이지(CreditChargePage)에서 전달받은 금액 (기본값: 10,000)
   const amount = location.state?.amount || 10000;
 
-  // 백엔드 API 연동 시 사용할 환경 변수 예시:
-  // const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+  // ✨ 확인 버튼 및 헤더 뒤로가기 클릭 시 마이페이지로 이동 (히스토리 덮어쓰기)
+  const handleGoToMyPage = () => {
+    navigate("/mypage", { replace: true });
+  };
 
   return (
     <div className="relative w-full min-h-screen bg-white max-w-[402px] mx-auto overflow-y-auto pb-[90px]">
       
-      {/* 1. 상단 헤더 (높이 60px, 하단 테두리 1px #F4F4F4) */}
+      {/* 1. 상단 헤더 */}
       <div className="w-full h-[60px] px-[24px] flex items-center border-b border-[#F4F4F4] relative">
         <button 
-          onClick={() => navigate("/mypage")} 
+          onClick={handleGoToMyPage} 
           className="text-[18px] font-[600] text-black absolute left-[24px]"
         >
           &lt;
@@ -106,9 +108,9 @@ function CreditCompletePage() {
             </div>
           </div>
 
-          {/* 하단 확인 버튼 (마이페이지로 이동) */}
+          {/* ✨ 하단 확인 버튼 (클릭 시 /mypage로 이동) */}
           <button
-            onClick={() => navigate("/mypage")}
+            onClick={handleGoToMyPage}
             className="w-full h-[49px] bg-[#62B5F5] text-white rounded-[12px] text-[14px] font-[600] mt-[24px] cursor-pointer"
             style={{ fontFamily: 'Pretendard, sans-serif' }}
           >
